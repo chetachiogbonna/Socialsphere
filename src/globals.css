@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ::-webkit-scrollbar-track {
+  @apply bg-dark
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#888] rounded-[6px]
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555
+} */
+
+@layer utilities {
+  * {
+    @apply border-border;
+  }
+
+  
+  body {
+    @apply bg-[#111111] text-white m-0 overflow-hidden font-mono;
+  }
+  
+  p {
+    @apply m-0
+  }
+
+  .comment-box-container {
+    scrollbar-width: none;
+  }
+
+  .comment-box-right {
+    position: relative;
+    background-color: #1959FC; /* #10B981 */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .comment-box-left {
+    position: relative;
+    background-color: #272F37; /* #10B981 */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+  }
+    
+  .comment-box-right::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-left-width: 15px;
+    border-left-color: #1959FC; 
+    border-right-width: 0;
+    border-top-width: 10px; 
+    border-bottom-width: 10px; 
+    margin-top: -10px;
+  }
+
+  .comment-box-left::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-right-width: 15px;
+    border-right-color: #272F37; 
+    border-left-width: 0;
+    border-top-width: 10px; 
+    border-bottom-width: 10px; 
+    margin-top: -10px;
+  }
+
+  .chat-container {
+    height: calc(100dvh - 80px);
+    scrollbar-width: none;
+  }
+
+  .link-active .change-icon-color {
+    filter: invert(1) sepia(1) saturate(1) hue-rotate(200deg);
+  }
+  
+  .link:hover .change-icon-color {
+    filter: invert(1) sepia(1) saturate(1) hue-rotate(200deg);
+  }
+
+  .topbar-menu {
+    animation-name: delay;
+    animation-duration: 0.30s;
+    animation-iteration-count: 1;
+  }
+
+  .right-side-bar {
+    height: calc(100dvh - 65px);
+    top: 62px;
+  }
+
+  @keyframes delay {
+    from {
+      opacity: 0.2;
+      width: 50px;
+      height: 50px;
+    }
+
+    to {
+      opacity: 1;
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  .showEditAndDelete::after {
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #1A1A1A;
+    border: 0.1em #57575C solid;
+    border-top: 0;
+    border-left: 0;
+
+    position: absolute;
+    right: -15px;
+    transform: translate(-20%, 60%) rotate(-45deg);
+  }
+
+  .profile-stats div {
+    @apply text-sm flex flex-col justify-center items-center;
+    font-family: monospace;
+  }
+
+  .profile-stats div p {
+    @apply text-xl;
+  }
+}
